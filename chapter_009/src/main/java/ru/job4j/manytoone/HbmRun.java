@@ -1,4 +1,4 @@
-package ru.job4j.toone;
+package ru.job4j.manytoone;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
