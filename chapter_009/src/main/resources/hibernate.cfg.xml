@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/fortask</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/job4jhiberautos</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">postgres</property>
         <property name="hibernate.connection.pool_size">1</property>
@@ -19,7 +19,9 @@
 
 <!--        <mapping class="ru.job4j.manytoone.User" />-->
 <!--        <mapping class="ru.job4j.manytoone.Role" />-->
-        <mapping class="ru.job4j.onetomany.User" />
-        <mapping class="ru.job4j.onetomany.Role" />
+<!--        <mapping class="ru.job4j.onetomany.User" />-->
+<!--        <mapping class="ru.job4j.onetomany.Role" />-->
+        <mapping class="ru.job4j.onetomanyautos.CarModel" />
+        <mapping class="ru.job4j.onetomanyautos.CarBrand" />
     </session-factory>
 </hibernate-configuration>
