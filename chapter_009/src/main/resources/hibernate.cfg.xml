@@ -5,7 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/job4jhiberdate</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/job4jhiberdrivers</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">postgres</property>
         <property name="hibernate.connection.pool_size">1</property>
@@ -16,7 +16,7 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <property name="use_sql_comments">true</property>
-        <property name="hibernate.jdbc.time_zone">Asia/Tokyo</property>
+        <property name="hibernate.jdbc.time_zone">Europe/Moscow</property>
 
 <!--        <mapping class="ru.job4j.hibernate.manytoone.User" />-->
 <!--        <mapping class="ru.job4j.hibernate.manytoone.Role" />-->
@@ -30,6 +30,8 @@
 <!--        <mapping class="ru.job4j.hibernate.lazy.Task"/>-->
 <!--        <mapping class="ru.job4j.hibernate.lazyautos.CarBrand"/>-->
 <!--        <mapping class="ru.job4j.hibernate.lazyautos.CarModel"/>-->
-        <mapping class="ru.job4j.hibernate.date.Product"/>
+<!--        <mapping class="ru.job4j.hibernate.date.Product"/>-->
+        <mapping class="ru.job4j.hibernate.manytomanycars.Driver"/>
+        <mapping class="ru.job4j.hibernate.manytomanycars.Car"/>
     </session-factory>
 </hibernate-configuration>
