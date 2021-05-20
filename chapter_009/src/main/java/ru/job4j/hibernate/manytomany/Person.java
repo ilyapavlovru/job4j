@@ -1,4 +1,4 @@
-package ru.job4j.manytomany;
+package ru.job4j.hibernate.manytomany;
 
 import javax.persistence.*;
 import java.util.ArrayList;

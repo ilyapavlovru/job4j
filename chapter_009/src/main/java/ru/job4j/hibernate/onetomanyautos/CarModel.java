@@ -1,21 +1,21 @@
-package ru.job4j.manytomanyauthors;
+package ru.job4j.hibernate.onetomanyautos;
 
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "book")
-public class Book {
+@Table(name = "car_model")
+public class CarModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    public static Book of(String name) {
-        Book book = new Book();
-        book.name = name;
-        return book;
+    public static CarModel of(String name) {
+        CarModel carModel = new CarModel();
+        carModel.name = name;
+        return carModel;
     }
 
     public int getId() {
@@ -34,6 +34,7 @@ public class Book {
         this.name = name;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {
@@ -42,8 +43,8 @@ public class Book {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Book book = (Book) o;
-        return id == book.id;
+        CarModel carModel = (CarModel) o;
+        return id == carModel.id;
     }
 
     @Override

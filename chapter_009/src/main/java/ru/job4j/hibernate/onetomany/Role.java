@@ -1,4 +1,4 @@
-package ru.job4j.onetomanyautos;
+package ru.job4j.hibernate.onetomany;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -6,21 +6,20 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "car_brand")
-public class CarBrand {
+@Table(name = "j_role")
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
-
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CarModel> carModels = new ArrayList<>();
+    private List<User> users = new ArrayList<>();
 
-    public static CarBrand of(String name) {
-        CarBrand carBrand = new CarBrand();
-        carBrand.name = name;
-        return carBrand;
+    public static Role of(String name) {
+        Role role = new Role();
+        role.name = name;
+        return role;
     }
 
     public int getId() {
@@ -39,16 +38,16 @@ public class CarBrand {
         this.name = name;
     }
 
-    public List<CarModel> getCarModels() {
-        return carModels;
+    public List<User> getUsers() {
+        return users;
     }
 
-    public void setCarModels(List<CarModel> carModels) {
-        this.carModels = carModels;
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 
-    public void addCarModel(CarModel carModel) {
-        this.carModels.add(carModel);
+    public void addUser(User u) {
+        this.users.add(u);
     }
 
     @Override
@@ -59,8 +58,8 @@ public class CarBrand {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CarBrand carBrand = (CarBrand) o;
-        return id == carBrand.id;
+        Role role = (Role) o;
+        return id == role.id;
     }
 
     @Override

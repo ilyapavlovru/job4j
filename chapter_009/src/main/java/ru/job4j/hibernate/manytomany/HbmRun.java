@@ -1,4 +1,4 @@
-package ru.job4j.manytomanyauthors;
+package ru.job4j.hibernate.manytomany;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -15,21 +15,21 @@ public class HbmRun {
             Session session = sf.openSession();
             session.beginTransaction();
 
-            Book one = Book.of("Book 1");
-            Book two = Book.of("Book 2");
+            Address one = Address.of("Kazanskaya", "1");
+            Address two = Address.of("Piterskaya", "10");
 
-            Author first = Author.of("Author 1");
-            first.getBooks().add(one);
-            first.getBooks().add(two);
+            Person first = Person.of("Nikolay");
+            first.getAddresses().add(one);
+            first.getAddresses().add(two);
 
-            Author second = Author.of("Author 2");
-            second.getBooks().add(two);
+            Person second = Person.of("Anatoliy");
+            second.getAddresses().add(two);
 
             session.persist(first);
             session.persist(second);
 
-            Author author = session.get(Author.class, 1);
-            session.remove(author);
+            Person person = session.get(Person.class, 1);
+            session.remove(person);
 
             session.getTransaction().commit();
             session.close();

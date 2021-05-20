@@ -1,26 +1,26 @@
-package ru.job4j.lazy;
+package ru.job4j.hibernate.lazyautos;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "category")
-public class Category {
+@Table(name = "car_model")
+public class CarModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    private List<Task> tasks = new ArrayList<>();
+    @ManyToOne
+    @JoinColumn(name = "car_brand_id")
+    private CarBrand carBrand;
 
-    public static Category of(String name) {
-        Category category = new Category();
-        category.name = name;
-        return category;
+    public static CarModel of(String name, CarBrand carBrand) {
+        CarModel carModel = new CarModel();
+        carModel.name = name;
+        carModel.carBrand = carBrand;
+        return carModel;
     }
 
     public int getId() {
@@ -39,12 +39,12 @@ public class Category {
         this.name = name;
     }
 
-    public List<Task> getTasks() {
-        return tasks;
+    public CarBrand getCarBrand() {
+        return carBrand;
     }
 
-    public void setTasks(List<Task> tasks) {
-        this.tasks = tasks;
+    public void setCarBrand(CarBrand carBrand) {
+        this.carBrand = carBrand;
     }
 
     @Override
@@ -55,8 +55,8 @@ public class Category {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Category category = (Category) o;
-        return id == category.id;
+        CarModel carModel = (CarModel) o;
+        return id == carModel.id;
     }
 
     @Override
@@ -66,9 +66,10 @@ public class Category {
 
     @Override
     public String toString() {
-        return "Category{"
+        return "CarModel{"
                 + "id=" + id
                 + ", name='" + name + '\''
+                + ", carBrand=" + carBrand
                 + '}';
     }
 }

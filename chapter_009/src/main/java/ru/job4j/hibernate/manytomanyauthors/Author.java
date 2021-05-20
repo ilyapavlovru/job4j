@@ -1,4 +1,4 @@
-package ru.job4j.lazyautos;
+package ru.job4j.hibernate.manytomanyauthors;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -6,22 +6,21 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "car_brand")
-
-public class CarBrand {
+@Table(name = "author")
+public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    @OneToMany(mappedBy = "carBrand")
-    private List<CarModel> carModels = new ArrayList<>();
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    private List<Book> books = new ArrayList<>();
 
-    public static CarBrand of(String name) {
-        CarBrand carBrand = new CarBrand();
-        carBrand.name = name;
-        return carBrand;
+    public static Author of(String name) {
+        Author author = new Author();
+        author.name = name;
+        return author;
     }
 
     public int getId() {
@@ -40,12 +39,12 @@ public class CarBrand {
         this.name = name;
     }
 
-    public List<CarModel> getCarModels() {
-        return carModels;
+    public List<Book> getBooks() {
+        return books;
     }
 
-    public void setCarModels(List<CarModel> carModels) {
-        this.carModels = carModels;
+    public void setBooks(List<Book> books) {
+        this.books = books;
     }
 
     @Override
@@ -56,20 +55,12 @@ public class CarBrand {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CarBrand carBrand = (CarBrand) o;
-        return id == carBrand.id;
+        Author author = (Author) o;
+        return id == author.id;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
-    }
-
-    @Override
-    public String toString() {
-        return "CarBrand{"
-                + "id=" + id
-                + ", name='" + name + '\''
-                + '}';
     }
 }

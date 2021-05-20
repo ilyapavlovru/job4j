@@ -1,4 +1,4 @@
-package ru.job4j.lazyautos;
+package ru.job4j.hibernate.manytomanyauthors;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -6,24 +6,31 @@ import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistry;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class HbmRun {
     public static void main(String[] args) {
-        List<CarBrand> list = new ArrayList<>();
         final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
                 .configure().build();
         try {
             SessionFactory sf = new MetadataSources(registry).buildMetadata().buildSessionFactory();
             Session session = sf.openSession();
             session.beginTransaction();
-            list = session.createQuery("from CarBrand").list();
-            for (CarBrand carBrand : list) {
-                for (CarModel carModel : carBrand.getCarModels()) {
-                    System.out.println(carModel);
-                }
-            }
+
+            Book one = Book.of("Book 1");
+            Book two = Book.of("Book 2");
+
+            Author first = Author.of("Author 1");
+            first.getBooks().add(one);
+            first.getBooks().add(two);
+
+            Author second = Author.of("Author 2");
+            second.getBooks().add(two);
+
+            session.persist(first);
+            session.persist(second);
+
+            Author author = session.get(Author.class, 1);
+            session.remove(author);
+
             session.getTransaction().commit();
             session.close();
         }  catch (Exception e) {

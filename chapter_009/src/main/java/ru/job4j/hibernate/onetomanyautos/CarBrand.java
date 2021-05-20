@@ -1,4 +1,4 @@
-package ru.job4j.manytomanyauthors;
+package ru.job4j.hibernate.onetomanyautos;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -6,21 +6,21 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "author")
-public class Author {
+@Table(name = "car_brand")
+public class CarBrand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
-    private List<Book> books = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<CarModel> carModels = new ArrayList<>();
 
-    public static Author of(String name) {
-        Author author = new Author();
-        author.name = name;
-        return author;
+    public static CarBrand of(String name) {
+        CarBrand carBrand = new CarBrand();
+        carBrand.name = name;
+        return carBrand;
     }
 
     public int getId() {
@@ -39,12 +39,16 @@ public class Author {
         this.name = name;
     }
 
-    public List<Book> getBooks() {
-        return books;
+    public List<CarModel> getCarModels() {
+        return carModels;
     }
 
-    public void setBooks(List<Book> books) {
-        this.books = books;
+    public void setCarModels(List<CarModel> carModels) {
+        this.carModels = carModels;
+    }
+
+    public void addCarModel(CarModel carModel) {
+        this.carModels.add(carModel);
     }
 
     @Override
@@ -55,8 +59,8 @@ public class Author {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Author author = (Author) o;
-        return id == author.id;
+        CarBrand carBrand = (CarBrand) o;
+        return id == carBrand.id;
     }
 
     @Override

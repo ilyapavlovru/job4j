@@ -1,4 +1,4 @@
-package ru.job4j.onetomany;
+package ru.job4j.hibernate.onetomany;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

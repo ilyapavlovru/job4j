@@ -1,4 +1,4 @@
-package ru.job4j.lazy;
+package ru.job4j.hibernate.lazy;
 
 import javax.persistence.*;
 import java.util.Objects;

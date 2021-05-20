@@ -1,4 +1,4 @@
-package ru.job4j.onetomany;
+package ru.job4j.hibernate.lazy;
 
 import javax.persistence.*;
 import java.util.ArrayList;
@@ -6,20 +6,21 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "j_role")
-public class Role {
+@Table(name = "category")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<User> users = new ArrayList<>();
 
-    public static Role of(String name) {
-        Role role = new Role();
-        role.name = name;
-        return role;
+    @OneToMany(mappedBy = "category")
+    private List<Task> tasks = new ArrayList<>();
+
+    public static Category of(String name) {
+        Category category = new Category();
+        category.name = name;
+        return category;
     }
 
     public int getId() {
@@ -38,16 +39,12 @@ public class Role {
         this.name = name;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<Task> getTasks() {
+        return tasks;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
-    }
-
-    public void addUser(User u) {
-        this.users.add(u);
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
     }
 
     @Override
@@ -58,12 +55,20 @@ public class Role {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        Role role = (Role) o;
-        return id == role.id;
+        Category category = (Category) o;
+        return id == category.id;
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return "Category{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + '}';
     }
 }

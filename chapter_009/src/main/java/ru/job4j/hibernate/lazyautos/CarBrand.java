@@ -1,26 +1,27 @@
-package ru.job4j.lazyautos;
+package ru.job4j.hibernate.lazyautos;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "car_model")
-public class CarModel {
+@Table(name = "car_brand")
+
+public class CarBrand {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     private String name;
 
-    @ManyToOne
-    @JoinColumn(name = "car_brand_id")
-    private CarBrand carBrand;
+    @OneToMany(mappedBy = "carBrand")
+    private List<CarModel> carModels = new ArrayList<>();
 
-    public static CarModel of(String name, CarBrand carBrand) {
-        CarModel carModel = new CarModel();
-        carModel.name = name;
-        carModel.carBrand = carBrand;
-        return carModel;
+    public static CarBrand of(String name) {
+        CarBrand carBrand = new CarBrand();
+        carBrand.name = name;
+        return carBrand;
     }
 
     public int getId() {
@@ -39,12 +40,12 @@ public class CarModel {
         this.name = name;
     }
 
-    public CarBrand getCarBrand() {
-        return carBrand;
+    public List<CarModel> getCarModels() {
+        return carModels;
     }
 
-    public void setCarBrand(CarBrand carBrand) {
-        this.carBrand = carBrand;
+    public void setCarModels(List<CarModel> carModels) {
+        this.carModels = carModels;
     }
 
     @Override
@@ -55,8 +56,8 @@ public class CarModel {
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
-        CarModel carModel = (CarModel) o;
-        return id == carModel.id;
+        CarBrand carBrand = (CarBrand) o;
+        return id == carBrand.id;
     }
 
     @Override
@@ -66,10 +67,9 @@ public class CarModel {
 
     @Override
     public String toString() {
-        return "CarModel{"
+        return "CarBrand{"
                 + "id=" + id
                 + ", name='" + name + '\''
-                + ", carBrand=" + carBrand
                 + '}';
     }
 }
