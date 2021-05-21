@@ -2,14 +2,9 @@ package ru.job4j.hibernate.manytomanycars;
 
 import java.util.HashSet;
 import java.util.Set;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
+
 import static javax.persistence.GenerationType.IDENTITY;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
 
 @Entity
 @Table(name = "car", catalog = "job4jhiberdrivers")
@@ -18,6 +13,8 @@ public class Car implements java.io.Serializable {
     private Integer carId;
     private String name;
     private Set<Driver> drivers = new HashSet<Driver>(0);
+
+    private Engine engine;
 
     public Car() {
     }
@@ -29,6 +26,11 @@ public class Car implements java.io.Serializable {
     public Car(String name, Set<Driver> drivers) {
         this.name = name;
         this.drivers = drivers;
+    }
+
+    public Car(String name, Engine engine) {
+        this.name = name;
+        this.engine = engine;
     }
 
     @Id
@@ -58,5 +60,15 @@ public class Car implements java.io.Serializable {
 
     public void setDrivers(Set<Driver> drivers) {
         this.drivers = drivers;
+    }
+
+    @ManyToOne
+    @JoinColumn(name = "ENGINE_ID", foreignKey = @ForeignKey(name = "ENGINE_ID_FK"))
+    public Engine getEngine() {
+        return engine;
+    }
+
+    public void setEngine(Engine engine) {
+        this.engine = engine;
     }
 }

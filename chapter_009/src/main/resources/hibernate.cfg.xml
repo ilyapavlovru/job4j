@@ -32,6 +32,7 @@
 <!--        <mapping class="ru.job4j.hibernate.lazyautos.CarModel"/>-->
 <!--        <mapping class="ru.job4j.hibernate.date.Product"/>-->
         <mapping class="ru.job4j.hibernate.manytomanycars.Driver"/>
+        <mapping class="ru.job4j.hibernate.manytomanycars.Engine"/>
         <mapping class="ru.job4j.hibernate.manytomanycars.Car"/>
     </session-factory>
 </hibernate-configuration>
