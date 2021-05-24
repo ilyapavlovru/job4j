@@ -5,7 +5,8 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/job4jhibercandidates</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/job4jhiberhqlcandidatesselectfetch</property>
+<!--        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/job4jhiberhqlstudentsselectfetch</property>-->
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">postgres</property>
         <property name="hibernate.connection.pool_size">1</property>
@@ -35,6 +36,14 @@
 <!--        <mapping class="ru.job4j.hibernate.manytomanycars.Engine"/>-->
 <!--        <mapping class="ru.job4j.hibernate.manytomanycars.Car"/>-->
 <!--        <mapping class="ru.job4j.hibernate.hql.Student"/>-->
-        <mapping class="ru.job4j.hibernate.hqlcandidate.Candidate"/>
+<!--        <mapping class="ru.job4j.hibernate.hqlcandidate.Candidate"/>-->
+
+<!--        <mapping class="ru.job4j.hibernate.hqlstudentselectfetch.Student"/>-->
+<!--        <mapping class="ru.job4j.hibernate.hqlstudentselectfetch.Account"/>-->
+<!--        <mapping class="ru.job4j.hibernate.hqlstudentselectfetch.Book"/>-->
+
+        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.Candidate"/>
+        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.VacancyBase"/>
+        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.Vacancy"/>
     </session-factory>
 </hibernate-configuration>
