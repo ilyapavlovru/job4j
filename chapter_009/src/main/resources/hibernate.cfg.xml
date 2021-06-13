@@ -42,8 +42,10 @@
 <!--        <mapping class="ru.job4j.hibernate.hqlstudentselectfetch.Account"/>-->
 <!--        <mapping class="ru.job4j.hibernate.hqlstudentselectfetch.Book"/>-->
 
-        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.Candidate"/>
-        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.VacancyBase"/>
-        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.Vacancy"/>
+<!--        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.Candidate"/>-->
+<!--        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.VacancyBase"/>-->
+<!--        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.Vacancy"/>-->
+
+        <mapping class="ru.job4j.hibernate.hqlintegration.City"/>
     </session-factory>
 </hibernate-configuration>
