@@ -1,4 +1,4 @@
-package ru.job4j.hibernate.exam.inheritance.strategy1;
+package ru.job4j.hibernate.exam.inheritance.strategy3and4;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -42,7 +42,7 @@ public class Main {
             session1 = sessionFactory.getCurrentSession();
             transaction1  = session1.beginTransaction();
             List billingDetails = session1.createQuery(
-                    "select bd from ru.job4j.hibernate.exam.inheritance.strategy1.BillingDetails bd").list();
+                    "select bd from ru.job4j.hibernate.exam.inheritance.strategy3and4.BillingDetails bd").list();
             for (int i = 0; i < billingDetails.size(); i++) {
                 System.out.println(billingDetails.get(i));
             }

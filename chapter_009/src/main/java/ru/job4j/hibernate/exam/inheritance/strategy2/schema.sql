@@ -1,11 +1,11 @@
-create database job4jhiberinheritance1;
+create database job4jhiberinheritance2;
 
 create table credit_card
 (
     id serial not null
         constraint bank_account_pkey
             primary key,
-    cc_owner varchar(20) not null,
+    owner varchar(20) not null,
     card_number integer not null,
     exp_month varchar(9) not null,
     exp_year varchar(4) not null

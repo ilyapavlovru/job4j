@@ -5,8 +5,7 @@
 <hibernate-configuration>
     <session-factory>
         <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
-        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/job4jhiberinheritance1</property>
-<!--        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/job4jhiberhqlstudentsselectfetch</property>-->
+        <property name="hibernate.connection.url">jdbc:postgresql://127.0.0.1:5432/job4jhiberinheritance5</property>
         <property name="hibernate.connection.username">postgres</property>
         <property name="hibernate.connection.password">postgres</property>
         <property name="hibernate.connection.pool_size">1</property>
@@ -46,10 +45,9 @@
 <!--        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.VacancyBase"/>-->
 <!--        <mapping class="ru.job4j.hibernate.hqlcandidatesselectfetch.Vacancy"/>-->
 
-        <mapping class="ru.job4j.hibernate.exam.inheritance.strategy1.CreditCard"/>
-        <mapping class="ru.job4j.hibernate.exam.inheritance.strategy1.BankAccount"/>
-        <mapping class="ru.job4j.hibernate.exam.inheritance.strategy1.BillingDetails"/>
+        <mapping class="ru.job4j.hibernate.exam.inheritance.strategy3and4.CreditCard"/>
+        <mapping class="ru.job4j.hibernate.exam.inheritance.strategy3and4.BankAccount"/>
+        <mapping class="ru.job4j.hibernate.exam.inheritance.strategy3and4.BillingDetails"/>
 
-        <mapping class="ru.job4j.hibernate.hqlintegration.City"/>
     </session-factory>
 </hibernate-configuration>
