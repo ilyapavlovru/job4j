@@ -1,4 +1,4 @@
-package ru.job4j.springdicomponent.springdi;
+package ru.job4j.springdiautowiredset;
 
 import org.springframework.stereotype.Component;
 
