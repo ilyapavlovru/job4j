@@ -1,20 +1,34 @@
 [![Build Status](https://travis-ci.org/ilyapavlovru/job4j.svg?branch=master)](https://travis-ci.org/ilyapavlovru/job4j)
 [![codecov](https://codecov.io/gh/ilyapavlovru/job4j/branch/master/graph/badge.svg)](https://codecov.io/gh/ilyapavlovru/job4j)
 
-# job4j
 
-Я начал курс 8 января 2020 и планирую закончить курс и 
-устроиться на работу программистом java в международную кампанию 
-в апреле - июле 2020.
+Описание репозитория
+==
+Этот репозиторий был создан для выполнения задач курса job4j.
 
-Объединение зафиксированных изменений
+Блок "Стажер"
+==
+- Инструменты: Maven, JUnit, Git, IntelliJ Idea, Сheckstyle, JaCoCo, Travis CI
+- Синтаксис языка: JVM, Типы данных, Операторы условия, Циклы, Массивы
+- ООП: Наследование, Инкапсуляция, Полиморфизм, Внутренние класcы, Абстрактные классы, Исключения
+- Шаблоны проектирования: Синглтон, Декоратор, Стратегия, Фабрика
+- Коллекции Lite: Collections Framework, Коллекции, Сортировка, Обобщения, Итераторы
+- Функциональное программирование: Lambda, Stream API
 
-В курсе производилась работа с ветками git.
+Блок "Middle"
+==
+- Многопоточность: Синхронные и асинхронные операции, Синхронизация ресурсов, JMM, Низкоуровневые блокировки, Неблокирующие алгоритмы, Потокобезопасные коллекции
+- Клиент-серверное приложение: Общая схема клиент-серверного приложения, Протоколы HTTP и HTTPS, Servlet, JSP, MVC, JSLT, Filter, Session, Auth, Клиентские языки HTML, JS, CSS, Тестирование Mockito
+- Hibernate: Базовые понятия ORM. Hibernate,  Конфигурирование Hibernate, Связь модельных представлений с объектами, Язык запросов HQL, Интеграционное тестирование
+- Spring: Spring IoC, Spring HibernateTemplate, Spring Data, Spring MVC, Spring Security, Spring Test, Spring Boot, Spring Web Service, Spring JMS
 
-В курсе производилась работа в ветках git.
+Описание разделов репозитория
+==
+chapter_001 - Basic syntax
+chapter_002 - OOP
+chapter_003 - Collections. Lite
+chapter_004 - Stream API
 
-Создание ветки из IDEA.
+chapter_007 - Multithreading
 
-В курсе производилась работа с ветками git.
-
-Объединение зафиксированных изменений
+chapter_012 - Servlet/JSP
